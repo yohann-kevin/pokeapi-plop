@@ -1,12 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <figure>
+        <!--méthode 1-->
+        <!-- <h1 id="plop"></h1>
+        <img id="jeSuisUneImage">
+        <h1 id="plop2"></h1>
+        <img id="jeSuisUneImage2">
+        <h1 id="plop3"></h1>
+        <img id="jeSuisUneImage3"> -->
+        <!--méthode 2-->
+        <!-- <h1 id="pikachu"></h1>
+        <img id="img1" src="">
+        <h1 id="raichu"></h1>
+        <img id="img2" src=""> -->
+        <div id="pokemon"></div>
+    </figure>
 </body>
+<script type="text/javascript">
+    const pokemon = document.getElementById('pokemon');
+
+
+
+
+    for(let i = 0; i < 151; i++){
+
+
+
+        
+        fetch("https://pokeapi.co/api/v2/pokemon/" + i).then(function (response) {
+        return response.json()
+    }).then(function (json) {
+        let pName = document.createElement('h1');
+        pName.textContent = json.name;
+        let pImg = document.createElement('img');
+        pImg.src = json.sprites.front_shiny;
+
+        pokemon.appendChild(pName)
+        pokemon.appendChild(pImg)
+    });
+    }
+
+    //méthode 1
+
+    // let plop = document.getElementById('plop')
+    // let imgPlop = document.getElementById('jeSuisUneImage')
+    // let plop2 = document.getElementById('plop2')
+    // let imgPlop2 = document.getElementById('jeSuisUneImage2')
+    // let plop3 = document.getElementById('plop3')
+    // let imgPlop3 = document.getElementById('jeSuisUneImage3')
+
+    // fetch("https://pokeapi.co/api/v2/pokemon/151/")
+    //     .then(function (response) {
+    //         return response.json();
+    //     }).then(function (mew) {
+    //         plop.textContent = mew.name;
+    //         imgPlop.src = mew.sprites.front_shiny;
+    //     });
+
+    // fetch("https://pokeapi.co/api/v2/pokemon/1/")
+    //     .then(function (response) {
+    //         return response.json();
+    //     }).then(function (data) {
+    //         plop2.textContent = data.name;
+    //         imgPlop2.src = data.sprites.front_shiny;
+    //     });
+    // fetch("https://pokeapi.co/api/v2/pokemon/2/")
+    //     .then(function (response) {
+    //         return response.json();
+    //     }).then(function (data) {
+    //         plop3.textContent = data.name;
+    //         imgPlop3.src = data.sprites.front_shiny;
+    //     });
+
+    // //méthode 2
+
+    // let myTitle = document.getElementById('pikachu')
+
+    // fetch("https://pokeapi.co/api/v2/pokemon-form/25/")
+    //     .then(function (response) {
+    //         return response.json();
+    //     }).then(function (pikachu) {
+    //         myTitle.textContent = pikachu.name;
+    //     });
+
+    // let myTitle2 = document.getElementById('raichu')
+
+    // fetch("https://pokeapi.co/api/v2/pokemon-species/26/")
+    //     .then(function (response) {
+    //         return response.json();
+    //     }).then(function (raichu) {
+    //         myTitle2.textContent = raichu.name;
+    //     });
+
+    // let myImage = document.getElementById('img1');
+
+    // fetch("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png")
+    //     .then(function (response) {
+    //         return response.blob();
+    //     })
+    //     .then(function (pikachu) {
+    //         let objectURL3 = URL.createObjectURL(pikachu);
+    //         myImage.src = objectURL3;
+    //     });
+
+    // let myImage2 = document.getElementById('img2');
+
+    // fetch("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/26.png")
+    //     .then(function (response) {
+    //         return response.blob();
+    //     })
+    //     .then(function (Raichu) {
+    //         let objectURL4 = URL.createObjectURL(Raichu);
+    //         myImage2.src = objectURL4;
+    //     });
+</script>
+
 </html>
