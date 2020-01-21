@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+body{
+    background: url(image/background/noir1.jpg)repeat-y  #23272b;
+}
+#head h1{
+    margin-top: 170px;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+}
+#searchbar{
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0.7;
+}
+#searchbar input{
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    border: 3px grey solid;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+#searchbar button{
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    border: 3px grey solid;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    cursor: pointer;
+}
+#searchbar button:hover{
+    background-color: grey;
+    color: white;
+    border: 3px grey solid;
+    font-size: 2.1rem;
+}
+#pokemon{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+#pokemon img{
+    margin-left: 620px;
+    margin-top: 20px;
+}

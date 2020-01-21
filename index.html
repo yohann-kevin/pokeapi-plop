@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="plop.css">
+    <title>Pokedex</title>
 </head>
 
 <body>
+    <header id="head">
+        <h1>POKEMON</h1>
+    </header>
+    <div id="searchbar">
+        <input type="text" id="input" name="txt" placeholder="rechercher" onkeyup="myFunction()">
+    </div>
     <figure>
         <!--méthode 1-->
         <!-- <h1 id="plop"></h1>
@@ -22,31 +29,44 @@
         <img id="img1" src="">
         <h1 id="raichu"></h1>
         <img id="img2" src=""> -->
-        <div id="pokemon"></div>
+            <ul id="ul">
+                <li id="pokemon"></li>
+            </ul>
     </figure>
 </body>
 <script type="text/javascript">
     const pokemon = document.getElementById('pokemon');
+    const imgPoke = document.getElementById('imgPoke');
 
-
-
-
-    for(let i = 0; i < 151; i++){
-
-
-
-        
+    for (let i = 0; i < 2; i++) {
         fetch("https://pokeapi.co/api/v2/pokemon/" + i).then(function (response) {
-        return response.json()
-    }).then(function (json) {
-        let pName = document.createElement('h1');
-        pName.textContent = json.name;
-        let pImg = document.createElement('img');
-        pImg.src = json.sprites.front_shiny;
+            return response.json()
+        }).then(function (json) {
+            let pName = document.createElement('a');
+            pName.textContent = json.name;
+            let pImg = document.createElement('img');
+            pImg.src = json.sprites.front_shiny;
 
-        pokemon.appendChild(pName)
-        pokemon.appendChild(pImg)
-    });
+            pokemon.appendChild(pName)
+            // pokemon.appendChild(pImg)
+        });
+    }
+    function myFunction() {
+        let input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('input');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById('ul');
+        li = ul.getElementsByTagName('li');
+
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName('a')[0];
+            txtValue = a.textContent || a.innertext;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
     }
 
     //méthode 1
