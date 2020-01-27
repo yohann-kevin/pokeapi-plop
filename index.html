@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="plop.css">
+    <link rel="stylesheet" type="text/css"href="plop.css">
     <title>Pokedex</title>
 </head>
 
@@ -38,7 +38,7 @@
     const pokemon = document.getElementById('pokemon');
     const imgPoke = document.getElementById('imgPoke');
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
         fetch("https://pokeapi.co/api/v2/pokemon/" + i).then(function (response) {
             return response.json()
         }).then(function (json) {
@@ -48,9 +48,12 @@
             pImg.src = json.sprites.front_shiny;
 
             pokemon.appendChild(pName)
-            // pokemon.appendChild(pImg)
         });
     }
+
+
+
+    
     function myFunction() {
         let input, filter, ul, li, a, i, txtValue;
         input = document.getElementById('input');
